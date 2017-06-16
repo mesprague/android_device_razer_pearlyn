@@ -56,9 +56,6 @@ on init
     chown system graphics /sys/class/graphics/fb0/pa
     chmod 0664 /sys/class/graphics/fb0/pa
 
-on post-fs
-    export LD_PRELOAD libNimsWrap.so
-
 on fs
     wait /dev/block/bootdevice
     mount_all fstab.qcom

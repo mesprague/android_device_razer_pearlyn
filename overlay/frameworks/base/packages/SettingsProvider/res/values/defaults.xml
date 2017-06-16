@@ -24,7 +24,7 @@
     <string name="def_location_providers_allowed" translatable="false">network</string>
     <bool name="def_wifi_on">true</bool>
     <bool name="def_netstats_enabled">false</bool>
-    <integer name="def_screen_brightness">235</integer>
+    <integer name="def_screen_brightness">255</integer>
     <bool name="def_screen_brightness_automatic_mode">false</bool>
     <bool name="def_dim_screen">false</bool>
     <bool name="def_install_non_market_apps">true</bool>

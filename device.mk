@@ -90,8 +90,7 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/media/bootanimation.zip:system/media/bootani
     
 # Fonts fix
 PRODUCT_COPY_FILES += \
-    frameworks/base/data/fonts/DroidSansFallback.ttf:system/fonts/DroidSansFallback.ttf \
-    frameworks/base/data/fonts/MTLmr3m.ttf:system/fonts/MTLmr3m.ttf 
+    frameworks/base/data/fonts/DroidSansFallback.ttf:system/fonts/DroidSansFallback.ttf
     
 # Bluetooth
 PRODUCT_COPY_FILES += \
@@ -124,11 +123,11 @@ PRODUCT_PACKAGES += \
 # Busybox & ntfs-3g
 PRODUCT_PACKAGES += \
 	busybox \
+	wpa_supplicant \
 	ntfs-3g
 	
 # Launcher Mod Apps (thanks to CM13 for fugu)
 PRODUCT_PACKAGES += \
-	ForgeHub \
 	AppDrawer	
 
 # Permissions
@@ -154,16 +153,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Power HAL
 PRODUCT_PACKAGES += \
     power.apq8084
-
-# tcmiface for tcm support
-PRODUCT_PACKAGES += tcmiface
-PRODUCT_BOOT_JARS += tcmiface
     
 # Audio
 PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    audiod \
+    audio_policy.apq8084 \
+    audio.primary.apq8084 \
     audio.r_submix.default \
     audio.usb.default \
-    audio.a2dp.default       
+    libaudio-resampler \
+    libqcompostprocbundle \
+    libqcomvisualizer \
+    libqcomvoiceprocessing \
+    tinymix    
     
 # Keystore
 PRODUCT_PACKAGES += \
