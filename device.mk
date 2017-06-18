@@ -161,6 +161,7 @@ PRODUCT_PACKAGES += \
     audio_policy.apq8084 \
     audio.primary.apq8084 \
     audio.r_submix.default \
+    libaudioroute \
     audio.usb.default \
     libaudio-resampler \
     libqcompostprocbundle \

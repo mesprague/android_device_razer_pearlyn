@@ -1,2 +1,1 @@
-# camera app
 allow priv_app device:dir { open read };

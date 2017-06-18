@@ -42,5 +42,11 @@
    <bool name="config_wifi_dual_band_support">true</bool>    
   <!-- Wifi background scan support -->
   <bool name="config_wifi_background_scan_support">true</bool>
-    <bool name="config_voice_capable">false</bool>  
+    <bool name="config_voice_capable">false</bool> 
+    <!-- Set brightness to max value --> 
+    <integer name="config_screenBrightnessSettingDefault">255</integer>
+     <!-- Support for Bluetooth LE --> 
+    <bool name="config_bluetooth_le_peripheral_mode_supported">false</bool>
+    <bool name="single_hand_mode">false</bool>
+    <bool name="config_enableWifiDisplay">true</bool>
 </resources>
