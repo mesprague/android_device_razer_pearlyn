@@ -45,6 +45,7 @@
     <bool name="config_voice_capable">false</bool> 
     <!-- Set brightness to max value --> 
     <integer name="config_screenBrightnessSettingDefault">255</integer>
+    <integer name="config_screenBrightnessSettingMinimum">255</integer>
      <!-- Support for Bluetooth LE --> 
     <bool name="config_bluetooth_le_peripheral_mode_supported">false</bool>
     <bool name="single_hand_mode">false</bool>
