@@ -33,5 +33,5 @@ PRODUCT_DEFAULT_REGION := US
 PRODUCT_LOCALES := en_US ko_KR en_GB en_CA en_AU en_NZ en_SG zh_CN zh_TW ja_JP fr_FR fr_BE fr_CA fr_CH it_IT it_CH es_ES es_US de_DE de_AT de_CH de_LI nl_NL nl_BE cs_CZ pl_PL ru_RU pt_PT # vi_VN
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT=razer/pearlyn/pearlyn:6.0.1/M-MMB29M-rzs-us-sf-bld2-19HP-08.02.AM/144:user/release-keys \
-    PRIVATE_BUILD_DESC="pearlyn-user 6.0.1 M-MMB29M-rzs-us-sf-bld2-19HP-08.02.AM 144 release-keys"
+    BUILD_FINGERPRINT=razer/pearlyn/pearlyn:7.1.2/F1G6G5/130106:user/release-keys \
+    PRIVATE_BUILD_DESC="pearyn-user 7.1.2 F1G6G5 130106 release-keys"
