@@ -24,8 +24,8 @@ $(call inherit-product-if-exists, vendor/razer/pearlyn/pearlyn-vendor.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/razer/pearlyn/overlay 
 
-PRODUCT_AAPT_CONFIG := normal large xlarge hdpi xhdpi
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
+PRODUCT_AAPT_CONFIG := large xlarge
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_CHARACTERISTICS := nosdcard,tv
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
@@ -85,8 +85,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
     $(LOCAL_PATH)/media/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml
     
-# Bootanimation    
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/media/bootanimation.zip:system/media/bootanimation.zip \
     
 # Fonts fix
 PRODUCT_COPY_FILES += \
@@ -169,14 +167,64 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     tinymix    
     
+# Display
+PRODUCT_PACKAGES += \
+	libqdutils \
+	libc2dcolorconvert \
+	libmm-omxcore \
+	libstagefrighthw \
+	liboverlay \
+	libqservice \
+	libvirtual \
+    gralloc.apq8084 \
+    hwcomposer.apq8084 \
+    hdmi_cec.apq8084 \
+    lights.apq8084 \
+    memtrack.apq8084    
+    
 # Keystore
 PRODUCT_PACKAGES += \
     keystore.apq8084        
+    
+# DEPS: libs
+PRODUCT_PACKAGES += \
+    libcurl \
+	libion \
+	libOmxAacEnc \
+	libOmxCore \
+	libOmxEvrcEnc \
+	libOmxQcelp13Enc \
+	libOmxVdec \
+	libOmxVdpp \
+	libOmxVenc \
+	libQWiFiSoftApCfg \
+	librmnetctl \
+	libtinyxml2 \
+	libtinyxml \
+	libwifi-hal-qcom \
+	libxml2
+	
+# DEPS: binaries
+PRODUCT_PACKAGES += \
+	cplay \
+	hostapd \
+	mm-vdec-omx-test \
+	mm-venc-omx-test720p \
+	mm-video-driver-test \
+	mm-video-encdrv-test \
+	msm-vidc-test \
+	rmnetcli \
+	setup_fs \
+	tinycap \
+	tinypcminfo \
+	tinyplay
     
 # Without this filter, we get very close to the limit.
 PRODUCT_DEX_PREOPT_DEFAULT_FLAGS += --compiler-filter=space     
 
 # Bootanimation
+TARGET_SCREEN_WIDTH := 1920
+TARGET_SCREEN_HEIGHT := 1080
 TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
