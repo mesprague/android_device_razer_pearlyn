@@ -118,11 +118,9 @@ PRODUCT_PACKAGES += \
     vold.fstab \
     usf_post_boot.sh
 	
-# Busybox & ntfs-3g
+# Busybox
 PRODUCT_PACKAGES += \
-	busybox \
-	wpa_supplicant \
-	ntfs-3g
+	busybox
 	
 # Launcher Mod Apps (thanks to CM13 for fugu)
 PRODUCT_PACKAGES += \
