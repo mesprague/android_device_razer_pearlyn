@@ -10,3 +10,8 @@ allow zygote system_server:binder { call transfer };
 allow zygote time_daemon:unix_stream_socket connectto;
 allow zygote user_profile_data_file:file getattr;
 allow zygote zygote_tmpfs:file execute;
+allow zygote gpu_device:chr_file { ioctl open read write };
+allow zygote surfaceflinger:binder { call transfer };
+allow zygote surfaceflinger:fd use;
+allow zygote surfaceflinger:unix_stream_socket { read write };
+allow zygote system_server:unix_stream_socket { read write };

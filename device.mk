@@ -118,8 +118,9 @@ PRODUCT_PACKAGES += \
     vold.fstab \
     usf_post_boot.sh
 	
-# Busybox
+# wpa_supplicant & Busybox
 PRODUCT_PACKAGES += \
+	wpa_supplicant \
 	busybox
 	
 # Launcher Mod Apps (thanks to CM13 for fugu)

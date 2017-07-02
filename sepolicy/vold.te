@@ -3,3 +3,4 @@ allow vold firmware_file:file r_file_perms;
 allow vold persist_file:dir r_dir_perms;
 allow vold logd:dir { open };
 allow vold logd:lnk_file { getattr read };
+allow vold system_block_device:blk_file getattr;
