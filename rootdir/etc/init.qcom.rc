@@ -25,6 +25,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import init.trace.rc
 import init.razer.usb.rc
 import init.qcom.usb.rc
 import init.target.rc
@@ -44,7 +45,6 @@ on init
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
-    
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB

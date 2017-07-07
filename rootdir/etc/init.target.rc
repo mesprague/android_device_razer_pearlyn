@@ -30,6 +30,15 @@ import init.razer.rc
 
 on early-init
     mkdir /firmware 0771 system system
+    mkdir /firmware/image 0771 system system
+    
+    # Keymaster Fix
+    symlink /system/vendor/firmware/keymaster/keymaster.b00 /firmware/image/keymaster.b00
+    symlink /system/vendor/firmware/keymaster/keymaster.b01 /firmware/image/keymaster.b01
+    symlink /system/vendor/firmware/keymaster/keymaster.b02 /firmware/image/keymaster.b02
+    symlink /system/vendor/firmware/keymaster/keymaster.b03 /firmware/image/keymaster.b03
+    symlink /system/vendor/firmware/keymaster/keymaster.mdt /firmware/image/keymaster.mdt
+    
     symlink /data/tombstones /tombstones
 
 on init

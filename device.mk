@@ -66,6 +66,7 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     init.razer.usb.rc \
     init.razer.usb.sh \
+    init.trace.rc \
     ueventd.qcom.rc
 
 # Media
@@ -217,7 +218,7 @@ PRODUCT_PACKAGES += \
 	tinycap \
 	tinypcminfo \
 	tinyplay
-    
+
 # Without this filter, we get very close to the limit.
 PRODUCT_DEX_PREOPT_DEFAULT_FLAGS += --compiler-filter=space     
 
