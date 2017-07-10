@@ -191,6 +191,7 @@ PRODUCT_PACKAGES += \
     libcurl \
 	libion \
 	libOmxAacEnc \
+	libOmxAmrEnc \
 	libOmxCore \
 	libOmxEvrcEnc \
 	libOmxQcelp13Enc \
@@ -202,6 +203,10 @@ PRODUCT_PACKAGES += \
 	libtinyxml2 \
 	libtinyxml \
 	libwifi-hal-qcom \
+	libcommon_time_client \
+	libjhead_jni \
+	libjhead \
+	libsqlite_jni \
 	libxml2
 	
 # DEPS: binaries
