@@ -14,3 +14,4 @@ allow qti_init_shell persist_drm_file:file { getattr open read };
 allow qti_init_shell sysfs_devices_system_cpu:file setattr;
 allow qti_init_shell sysfs_hsic:dir search;
 allow qti_init_shell sysfs_hsic:file { open write };
+allow qti_init_shell persist_drm_file:dir search;
