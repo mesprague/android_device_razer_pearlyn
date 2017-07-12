@@ -71,6 +71,9 @@ BOARD_VOLD_MAX_PARTITIONS := 40
 # inherit from the proprietary version
 -include vendor/razer/pearlyn/BoardConfigVendor.mk
 
+# CMHW
+BOARD_HARDWARE_CLASS += hardware/cyanogen/cmhw
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PEARLYN_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
