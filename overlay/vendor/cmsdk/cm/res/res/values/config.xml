@@ -20,4 +20,5 @@
     <bool name="config_defaultAutoContrast">false</bool>
     <bool name="config_defaultAutoOutdoorMode">false</bool>
     <bool name="config_defaultColorEnhancement">false</bool>
+    <integer name="config_deviceLightCapabilities">32</integer>
 </resources>
