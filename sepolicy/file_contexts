@@ -41,6 +41,7 @@
 /system/vendor/bin/qti                          u:object_r:system_file:s0
 /system/vendor/bin/sound_trigger_test           u:object_r:system_file:s0
 /system/vendor/bin/thermal-engine               u:object_r:system_file:s0
+/system/bin/wcnss_filter                	    u:object_r:start_hci_filter_exec:s0
 
 ###################################
 # sysfs files
