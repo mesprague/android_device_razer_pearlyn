@@ -1,5 +1,1 @@
-allow sysinit ctl_default_prop:property_service set;
-allow sysinit shell_prop:property_service set;
-allow sysinit sysfs:file setattr;
-allow sysinit sysfs_lowmemorykiller:file { getattr open setattr write };
-allow sysinit system_data_file:file getattr;
+allow sysinit kernel:system module_request;

@@ -1,45 +1,61 @@
+################################################
+# Devices
 #
-## Contexts
+/dev/block/platform/msm_sdcc\.1/by-name/recovery          u:object_r:recovery_block_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/boot              u:object_r:boot_block_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/misc              u:object_r:misc_block_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/userdata          u:object_r:userdata_block_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/system            u:object_r:system_block_device:s0
+/dev/block/zram0                                          u:object_r:swap_block_device:s0
+
+###################################
+# Dev nodes
 #
+/dev/kgsl-3d0                                   u:object_r:gpu_device:s0
+/dev/msm_.*                                     u:object_r:audio_device:s0
+/dev/msm_dsps                                   u:object_r:sensors_device:s0
+/dev/nfc-nci                                    u:object_r:nfc_device:s0
+/dev/nq-nci                                     u:object_r:nfc_device:s0
+/dev/qseecom                                    u:object_r:tee_device:s0
+/dev/rtc0                                       u:object_r:rtc_device:s0
+/dev/sensors                                    u:object_r:sensors_device:s0
+/dev/ttyHSL0                                    u:object_r:console_device:s0
+/dev/ttyHS0                            			u:object_r:hci_attach_dev:s0
+/dev/ttyHS[1-9]*                                u:object_r:serial_device:s0
+/dev/media([0-9])+                              u:object_r:camera_device:s0
+/dev/jpeg[0-9]*                                 u:object_r:camera_device:s0
+/dev/v4l-subdev.*                               u:object_r:camera_device:s0
+/dev/mdss_rotator                               u:object_r:graphics_device:s0
 
-# Audio DSP devices
-/dev/ttyHS3                             u:object_r:adsp_serial_device:s0
 
-# Bluetooth
-/dev/ttyHS0                             u:object_r:hci_attach_dev:s0
-
-# Block devices
-/dev/block/bootdevice/by-name/cid       u:object_r:cid_block_device:s0
-/dev/block/bootdevice/by-name/clogo     u:object_r:logo_block_device:s0
-/dev/block/bootdevice/by-name/frp       u:object_r:frp_block_device:s0
-/dev/block/bootdevice/by-name/logo      u:object_r:logo_block_device:s0
-/dev/block/bootdevice/by-name/persist   u:object_r:persist_block_device:s0
-/dev/block/bootdevice/by-name/mdm1dhob  u:object_r:hob_block_device:s0
-/dev/block/bootdevice/by-name/mdm1hob   u:object_r:hob_block_device:s0
-
-# Cutback
-/data/misc/cutback(/.*)?                u:object_r:cutback_data_file:s0
-/data/misc/audio_cutback(/.*)?          u:object_r:audio_cutback_data_file:s0
-
-# Radio/modem devices
-/dev/subsys_esoc0                       u:object_r:esoc_device:s0
-
-# Sockets
-/data/cam_socket([0-9])*                u:object_r:camera_socket:s0
-/data/power_supply_logger(/.*)?         u:object_r:battery_data_file:s0
-/dev/socket/adspdsock                   u:object_r:adspd_socket:s0
-/dev/socket/cutback                     u:object_r:cutback_socket:s0
-/data/system/dropbox-add(/.*)?          u:object_r:adspd_data_file:s0
-
-# STM401
-/dev/stm401                             u:object_r:sensors_device:s0
-/dev/stm401_as                          u:object_r:sensors_device:s0
-/dev/stm401_ms                          u:object_r:sensors_device:s0
-
+###################################
+# System files
 #
-## Executables
-#
+/system/bin/iop                                 u:object_r:dumpstate_exec:s0
+/system/bin/qseecomd                            u:object_r:tee_exec:s0
+/system/bin/qseecom_sample_client               u:object_r:tee_exec:s0
+/system/bin/razerdrm                  		    u:object_r:tee_exec:s0
+/system/bin/hostapd_cli                         u:object_r:hostapd_exec:s0
+/system/bin/razerdrmcheck                       u:object_r:system_file:s0
+/system/bin/btnvtool_razer                      u:object_r:system_file:s0
+/system/vendor/bin/qti                          u:object_r:system_file:s0
+/system/vendor/bin/sound_trigger_test           u:object_r:system_file:s0
+/system/vendor/bin/thermal-engine               u:object_r:system_file:s0
 
-/system/bin/adspd                       u:object_r:adspd_exec:s0
-/system/bin/dbvc_atvc_property_set      u:object_r:atvc_exec:s0
-/system/bin/stm401                      u:object_r:stm401_exec:s0
+###################################
+# sysfs files
+#
+/sys/class/thermal(/.*)?                                            u:object_r:sysfs_thermal:s0
+/sys/devices/[^/]+bcl[^/]+(/.*)?                                    u:object_r:sysfs_thermal:s0
+/sys/devices/platform/battery_current_limit                         u:object_r:sysfs_thermal:s0
+/sys/devices/virtual/thermal(/.*)?                                  u:object_r:sysfs_thermal:s0
+/sys/module/msm_thermal(/.*)?                                       u:object_r:sysfs_thermal:s0
+
+###################################
+# data files
+#
+/data/nfc(/.*)?                                                     u:object_r:nfc_data_file:s0
+
+# tee devices
+/dev/block/mmcblk0rpmb          u:object_r:tee_device:s0
+/dev/block/mmcblk0p34           u:object_r:tee_device:s0

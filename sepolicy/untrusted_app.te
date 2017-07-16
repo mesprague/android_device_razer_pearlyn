@@ -1,1 +1,2 @@
-allow untrusted_app zygote:binder call;
+allow untrusted_app self:udp_socket ioctl;
+allow untrusted_app kernel:system module_request;

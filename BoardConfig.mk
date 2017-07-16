@@ -142,7 +142,7 @@ BOARD_HAVE_CAMERA := false
 BOARD_USES_QC_TIME_SERVICES := true
 
 # SELinux
--include device/qcom/sepolicy/sepolicy.mk
+# -include device/qcom/sepolicy/sepolicy.mk
 
 # Enable dex-preoptimization to speed up first boot sequence
 WITH_DEXPREOPT := true

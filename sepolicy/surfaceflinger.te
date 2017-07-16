@@ -1,2 +1,2 @@
-allow surfaceflinger zygote:binder { call transfer };
-allow surfaceflinger zygote:fd use;
+allow surfaceflinger kernel:system module_request;
+allow surfaceflinger sysfs:file write;
