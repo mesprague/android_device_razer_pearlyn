@@ -1,62 +1,12 @@
-################################################
-# Devices
-#
-/dev/block/platform/msm_sdcc\.1/by-name/recovery          u:object_r:recovery_block_device:s0
-/dev/block/platform/msm_sdcc\.1/by-name/boot              u:object_r:boot_block_device:s0
-/dev/block/platform/msm_sdcc\.1/by-name/misc              u:object_r:misc_block_device:s0
-/dev/block/platform/msm_sdcc\.1/by-name/userdata          u:object_r:userdata_block_device:s0
-/dev/block/platform/msm_sdcc\.1/by-name/system            u:object_r:system_block_device:s0
-/dev/block/zram0                                          u:object_r:swap_block_device:s0
-
-###################################
-# Dev nodes
-#
-/dev/kgsl-3d0                                   u:object_r:gpu_device:s0
-/dev/msm_.*                                     u:object_r:audio_device:s0
-/dev/msm_dsps                                   u:object_r:sensors_device:s0
-/dev/nfc-nci                                    u:object_r:nfc_device:s0
-/dev/nq-nci                                     u:object_r:nfc_device:s0
-/dev/qseecom                                    u:object_r:tee_device:s0
-/dev/rtc0                                       u:object_r:rtc_device:s0
-/dev/sensors                                    u:object_r:sensors_device:s0
-/dev/ttyHSL0                                    u:object_r:console_device:s0
-/dev/ttyHS0                            			u:object_r:hci_attach_dev:s0
-/dev/ttyHS[1-9]*                                u:object_r:serial_device:s0
-/dev/media([0-9])+                              u:object_r:camera_device:s0
-/dev/jpeg[0-9]*                                 u:object_r:camera_device:s0
-/dev/v4l-subdev.*                               u:object_r:camera_device:s0
-/dev/mdss_rotator                               u:object_r:graphics_device:s0
-
-
 ###################################
 # System files
 #
-/system/bin/iop                                 u:object_r:dumpstate_exec:s0
-/system/bin/qseecomd                            u:object_r:tee_exec:s0
-/system/bin/qseecom_sample_client               u:object_r:tee_exec:s0
-/system/bin/razerdrm                  		    u:object_r:tee_exec:s0
-/system/bin/hostapd_cli                         u:object_r:hostapd_exec:s0
-/system/bin/razerdrmcheck                       u:object_r:system_file:s0
+/system/bin/razerdrm                  		    u:object_r:razerdrm_exec:s0
+/system/bin/razerdrmcheck                       u:object_r:razerdrm_exec:s0
 /system/bin/btnvtool_razer                      u:object_r:system_file:s0
-/system/vendor/bin/qti                          u:object_r:system_file:s0
-/system/vendor/bin/sound_trigger_test           u:object_r:system_file:s0
-/system/vendor/bin/thermal-engine               u:object_r:system_file:s0
-/system/bin/wcnss_filter                	    u:object_r:start_hci_filter_exec:s0
 
-###################################
-# sysfs files
+#################################
+# Razer Services
 #
-/sys/class/thermal(/.*)?                                            u:object_r:sysfs_thermal:s0
-/sys/devices/[^/]+bcl[^/]+(/.*)?                                    u:object_r:sysfs_thermal:s0
-/sys/devices/platform/battery_current_limit                         u:object_r:sysfs_thermal:s0
-/sys/devices/virtual/thermal(/.*)?                                  u:object_r:sysfs_thermal:s0
-/sys/module/msm_thermal(/.*)?                                       u:object_r:sysfs_thermal:s0
-
-###################################
-# data files
-#
-/data/nfc(/.*)?                                                     u:object_r:nfc_data_file:s0
-
-# tee devices
-/dev/block/mmcblk0rpmb          u:object_r:tee_device:s0
-/dev/block/mmcblk0p34           u:object_r:tee_device:s0
+/system/bin/valiService							u:object_r:valiService_exec:s0
+/system/bin/date								u:object_r:razerdate_exec:s0

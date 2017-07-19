@@ -12,3 +12,5 @@ allow zygote system_server:binder { call transfer };
 allow zygote user_profile_data_file:file getattr;
 allow zygote zygote_tmpfs:file execute;
 allow zygote user_profile_data_file:dir search;
+allow zygote razer_prop:file { getattr open read };
+allow zygote time_daemon:unix_stream_socket connectto;

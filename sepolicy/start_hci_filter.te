@@ -1,9 +1,0 @@
-type start_hci_filter, domain;
-type start_hci_filter_exec, exec_type, file_type;
-init_daemon_domain(start_hci_filter);
-
-# allow start_hci_filter default_prop:property_service set;
-allow start_hci_filter hci_attach_dev:chr_file { ioctl open read write };
-allow start_hci_filter init:unix_stream_socket connectto;
-allow start_hci_filter kernel:system module_request;
-allow start_hci_filter property_socket:sock_file write;
