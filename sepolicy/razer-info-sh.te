@@ -34,3 +34,4 @@ allow razer-info-sh rzrdrm_prop:file { getattr open read };
 allow razer-info-sh sysfs:file { getattr open read };
 allow razer-info-sh tee_exec:file { execute execute_no_trans getattr open read };
 allow razer-info-sh toolbox_exec:file { execute execute_no_trans getattr open read };
+allow razer-info-sh razerdrm_exec:file { execute execute_no_trans getattr open read };
