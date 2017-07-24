@@ -22,3 +22,5 @@ allow razer-ping-sh system_file:dir getattr;
 allow razer-ping-sh system_file:file { execute getattr open read };
 allow razer-ping-sh urandom_device:chr_file { getattr ioctl open read };
 allow razer-ping-sh rootfs:file { open read };
+
+allow init razer-ping-sh:process transition;

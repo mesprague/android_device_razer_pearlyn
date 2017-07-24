@@ -1,2 +1,3 @@
 allow system_server self:capability sys_module;
 allow system_server zygote:binder { call transfer };
+allow system_server radio_noril_prop:file { getattr open read };

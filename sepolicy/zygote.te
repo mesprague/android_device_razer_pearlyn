@@ -14,3 +14,5 @@ allow zygote zygote_tmpfs:file execute;
 allow zygote user_profile_data_file:dir search;
 allow zygote razer_prop:file { getattr open read };
 allow zygote time_daemon:unix_stream_socket connectto;
+allow zygote debugfs_tracing:dir search;
+allow zygote debugfs_trace_marker:file { open write };

@@ -1,0 +1,2 @@
+type led_debugfs_file, file_type;
+type usb_debugfs_file, file_type;

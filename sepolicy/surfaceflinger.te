@@ -1,2 +1,4 @@
 allow surfaceflinger kernel:system module_request;
 allow surfaceflinger sysfs:file write;
+allow surfaceflinger debugfs_tracing:dir search;
+allow surfaceflinger debugfs_trace_marker:file { open write };

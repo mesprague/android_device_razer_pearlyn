@@ -1,1 +1,3 @@
 allow bootanim kernel:system module_request;
+allow bootanim debugfs_tracing:dir search;
+allow bootanim debugfs_trace_marker:file { open write };

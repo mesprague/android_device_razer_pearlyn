@@ -30,3 +30,5 @@ allow qcom-usb-sh sysfs:file { open write };
 allow qcom-usb-sh sysfs_hsic:dir search;
 allow qcom-usb-sh sysfs_hsic:file { open write };
 allow qcom-usb-sh toolbox_exec:file { execute execute_no_trans getattr open read };
+
+allow init qcom-usb-sh:process transition;
