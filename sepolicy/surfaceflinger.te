@@ -1,3 +1,5 @@
+set_prop(surfaceflinger, hdmi_prop)
+
 allow surfaceflinger kernel:system module_request;
 allow surfaceflinger sysfs:file write;
 allow surfaceflinger debugfs_tracing:dir search;
