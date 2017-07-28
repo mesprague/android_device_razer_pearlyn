@@ -121,11 +121,7 @@ PRODUCT_PACKAGES += \
 	
 # wpa_supplicant
 PRODUCT_PACKAGES += \
-	wpa_supplicant
-	
-# Launcher Mod Apps (thanks to CM13 for fugu)
-PRODUCT_PACKAGES += \
-	AppDrawer	
+	wpa_supplicant	
 
 # Permissions
 PRODUCT_COPY_FILES += \
