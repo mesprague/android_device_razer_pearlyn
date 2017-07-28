@@ -18,4 +18,26 @@ LOCAL_PATH := $(call my-dir)
 
 ifneq ($(filter pearlyn,$(TARGET_DEVICE)),)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
+
+include $(CLEAR_VARS)
+
+# Create links for audcal data files
+$(shell mkdir -p $(TARGET_OUT)/etc/firmware/wcd9320; \
+	ln -sf /data/misc/audio/wcd9320_anc.bin \
+		$(TARGET_OUT)/etc/firmware/wcd9320/wcd9320_anc.bin;\
+	ln -sf /data/misc/audio/mbhc.bin \
+		$(TARGET_OUT)/etc/firmware/wcd9320/wcd9320_mbhc.bin; \
+	ln -sf /data/misc/audio/wcd9320_mad_audio.bin \
+		$(TARGET_OUT)/etc/firmware/wcd9320/wcd9320_mad_audio.bin)
+		
+# Create links for wlan cfg files
+$(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan; \
+	mkdir -p $(TARGET_OUT)/etc/firmware/wlan/qca_cld; \
+	ln -sf /system/etc/wifi/WCNSS_qcom_cfg.ini \
+		$(TARGET_OUT)/etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini;\
+	ln -sf /system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
+		$(TARGET_OUT)/etc/firmware/wlan/qca_cld/WCNSS_qcom_wlan_nv.bin; \
+	ln -sf /persist/wlan_mac.bin \
+		$(TARGET_OUT)/etc/firmware/wlan/qca_cld/wlan_mac.bin)
+				
 endif
