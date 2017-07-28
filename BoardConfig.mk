@@ -36,7 +36,7 @@ PEARLYN_PATH := device/razer/pearlyn
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(PEARLYN_PATH)/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom enforcing=0 androidboot.selinux=permissive user_debug=31 androidboot.verifiedbootstate=green androidboot.bl_state=0 androidboot.flash.locked=1
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom enforcing=0 androidboot.selinux=permissive user_debug=31
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02200000 --tags_offset 0x02000000 --second_offset 0x00f00000
 BOARD_KERNEL_SEPARATED_DT := true
