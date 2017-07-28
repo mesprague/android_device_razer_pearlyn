@@ -19,8 +19,6 @@ LOCAL_PATH := $(call my-dir)
 ifneq ($(filter pearlyn,$(TARGET_DEVICE)),)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
-include $(CLEAR_VARS)
-
 # Create links for audcal data files
 $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wcd9320; \
 	ln -sf /data/misc/audio/wcd9320_anc.bin \
