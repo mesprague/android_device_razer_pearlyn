@@ -1,20 +1,20 @@
 import init.pearlyn.diag.rc
 
-service razer-periph-sh /system/bin/sh /init.razer.peripherals.sh
+service razer-periph-sh /init.razer.peripherals.sh
    class late_start
    user root
    disabled
    oneshot
    seclabel u:object_r:razer-serv-sh:s0
 
-service razer-info-sh /system/bin/sh /init.razer.info.sh
+service razer-info-sh /init.razer.info.sh
    class late_start
    user root
    disabled
    oneshot
    seclabel u:object_r:razer-serv-sh:s0
 
-service razer-ping-sh /system/bin/sh /init.razer.ping.sh
+service razer-ping-sh /init.razer.ping.sh
     class late_start
     user root
     disabled

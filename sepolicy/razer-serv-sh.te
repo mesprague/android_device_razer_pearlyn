@@ -39,3 +39,4 @@ allow razer-serv-sh razerdrm_exec:file { execute execute_no_trans getattr open r
 allow razer-serv-sh rzrdrm_prop:file { getattr open read };
 allow razer-serv-sh rzrdrm_prop:property_service set;
 allow razer-serv-sh self:capability dac_override;
+allow razer-serv-sh rootfs:file entrypoint;
