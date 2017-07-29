@@ -3,7 +3,7 @@ allow init qti-testscripts:process { noatsecure rlimitinh siginh transition };
 allow init razerdate_exec:lnk_file read;
 allow init debugfs_trace_marker:file { open write };
 
-domain_trans(init, shell_exec, razer-serv-sh)
+type_transition init razer-serv-sh_exec:process razer-serv-sh;
 
 allow init razer-serv-sh:process { noatsecure rlimitinh siginh transition };
 
