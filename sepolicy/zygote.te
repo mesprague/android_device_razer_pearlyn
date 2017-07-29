@@ -16,3 +16,10 @@ allow zygote razer_prop:file { getattr open read };
 allow zygote time_daemon:unix_stream_socket connectto;
 allow zygote debugfs_tracing:dir search;
 allow zygote debugfs_trace_marker:file { open write };
+
+#debugfs access
+userdebug_or_eng(`
+typeattribute zygote qti_debugfs_domain;
+allow zygote debugfs:dir r_dir_perms;
+allow zygote debugfs:file rw_file_perms;
+')

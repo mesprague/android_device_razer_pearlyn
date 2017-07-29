@@ -6,3 +6,10 @@ allow init debugfs_trace_marker:file { open write };
 domain_trans(init, shell_exec, razer-serv-sh)
 
 allow init razer-serv-sh:process { noatsecure rlimitinh siginh transition };
+
+#debugfs access
+userdebug_or_eng(`
+typeattribute init qti_debugfs_domain;
+allow init debugfs:dir r_dir_perms;
+allow init debugfs:file rw_file_perms;
+')
