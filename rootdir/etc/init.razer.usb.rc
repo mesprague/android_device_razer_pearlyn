@@ -41,7 +41,7 @@ service qcom-usb-sh /init.razer.usb.sh
     class core
     user root
     oneshot
-    seclabel u:object_r:razer-serv-sh:s0
+    seclabel u:object_r:qcom-usb-sh:s0
 
 # Following are the parameters required for usb functionality. They provide configurable options like
 # product_id/vendor id and allows specifying required functions:

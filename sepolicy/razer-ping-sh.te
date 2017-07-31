@@ -1,0 +1,28 @@
+type razer-ping-sh, domain;
+type razer-ping-sh_exec, exec_type, file_type;
+init_daemon_domain(razer-ping-sh);
+
+type_transition init razer-ping-sh_exec : process razer-ping-sh;
+
+allow razer-ping-sh default_prop:file read;
+allow razer-ping-sh device:dir search;
+allow razer-ping-sh init:fd use;
+allow razer-ping-sh kernel:system module_request;
+allow razer-ping-sh null_device:chr_file { read write };
+allow razer-ping-sh proc:lnk_file read;
+allow razer-ping-sh properties_device:dir getattr;
+allow razer-ping-sh properties_serial:file { getattr open read };
+allow razer-ping-sh property_contexts:file { getattr open read };
+allow razer-ping-sh rootfs:lnk_file { getattr read };
+allow razer-ping-sh self:dir search;
+allow razer-ping-sh self:lnk_file read;
+allow razer-ping-sh shell_exec:file { entrypoint getattr read };
+allow razer-ping-sh sysfs:dir search;
+allow razer-ping-sh sysfs_devices_system_cpu:dir search;
+allow razer-ping-sh sysfs_devices_system_cpu:file { getattr open read };
+allow razer-ping-sh system_file:dir getattr;
+allow razer-ping-sh system_file:file { execute getattr open read };
+allow razer-ping-sh urandom_device:chr_file { getattr ioctl open read };
+allow razer-ping-sh rootfs:file { open read };
+allow razer-ping-sh rootfs:file entrypoint;
+allow razer-ping-sh persist_file:dir search;
