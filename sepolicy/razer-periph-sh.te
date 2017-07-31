@@ -1,6 +1,4 @@
-type razer-periph-sh, domain;
-type razer-periph-sh_exec, exec_type, file_type;
-init_daemon_domain(razer-periph-sh);
+type razer-periph-sh, domain, domain_deprecated;
 
 allow razer-periph-sh system_prop:property_service set;
 allow razer-periph-sh proc:file { getattr open read };

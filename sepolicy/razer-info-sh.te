@@ -1,6 +1,4 @@
-type razer-info-sh, domain;
-type razer-info-sh_exec, exec_type, file_type;
-init_daemon_domain(razer-info-sh);
+type razer-info-sh, domain, domain_deprecated;
 
 
 allow razer-info-sh device:dir search;
@@ -35,3 +33,4 @@ allow razer-info-sh sysfs:file { getattr open read };
 allow razer-info-sh tee_exec:file { execute execute_no_trans getattr open read };
 allow razer-info-sh toolbox_exec:file { execute execute_no_trans getattr open read };
 allow razer-info-sh razerdrm_exec:file { execute execute_no_trans getattr open read };
+allow razer-info-sh rootfs:file entrypoint;

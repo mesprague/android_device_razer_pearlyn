@@ -1,6 +1,4 @@
-type qcom-usb-sh, domain;
-type qcom-usb-sh_exec, exec_type, file_type;
-init_daemon_domain(qcom-usb-sh);
+type qcom-usb-sh, domain, domain_deprecated;
 
 
 allow qcom-usb-sh default_prop:file read;
@@ -30,3 +28,4 @@ allow qcom-usb-sh sysfs:file { open write };
 allow qcom-usb-sh sysfs_hsic:dir search;
 allow qcom-usb-sh sysfs_hsic:file { open write };
 allow qcom-usb-sh toolbox_exec:file { execute execute_no_trans getattr open read };
+allow qcom-usb-sh rootfs:file entrypoint;

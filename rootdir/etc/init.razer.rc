@@ -5,21 +5,21 @@ service razer-periph-sh /init.razer.peripherals.sh
    user root
    disabled
    oneshot
-   seclabel u:object_r:razer-periph-sh:s0
+   seclabel u:r:razer-periph-sh:s0
 
 service razer-info-sh /init.razer.info.sh
    class late_start
    user root
    disabled
    oneshot
-   seclabel u:object_r:razer-info-sh:s0
+   seclabel u:r:razer-info-sh:s0
 
 service razer-ping-sh /init.razer.ping.sh
     class late_start
     user root
     disabled
     oneshot
-    seclabel u:object_r:razer-ping-sh:s0
+    seclabel u:r:razer-ping-sh:s0
 
 service razerdate /system/bin/date -s 20150101
    oneshot

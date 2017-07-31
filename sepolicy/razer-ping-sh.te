@@ -1,8 +1,4 @@
-type razer-ping-sh, domain;
-type razer-ping-sh_exec, exec_type, file_type;
-init_daemon_domain(razer-ping-sh);
-
-type_transition init razer-ping-sh_exec : process razer-ping-sh;
+type razer-ping-sh, domain, domain_deprecated;
 
 allow razer-ping-sh default_prop:file read;
 allow razer-ping-sh device:dir search;
