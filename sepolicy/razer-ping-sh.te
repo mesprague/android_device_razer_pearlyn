@@ -22,3 +22,4 @@ allow razer-ping-sh urandom_device:chr_file { getattr ioctl open read };
 allow razer-ping-sh rootfs:file { open read };
 allow razer-ping-sh rootfs:file entrypoint;
 allow razer-ping-sh persist_file:dir search;
+allow razer-ping-sh proc_led_device:file { getattr open write };

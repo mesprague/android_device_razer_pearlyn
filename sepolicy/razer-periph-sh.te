@@ -13,3 +13,4 @@ allow razer-periph-sh persist_sys_rzr:file { getattr open read };
 allow razer-periph-sh persist_sys_rzr:property_service set;
 allow razer-periph-sh rootfs:file entrypoint;
 allow razer-periph-sh persist_file:dir search;
+allow razer-periph-sh proc_usb_device:file { getattr open write };
