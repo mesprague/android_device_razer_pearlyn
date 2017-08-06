@@ -22,6 +22,7 @@ $(call inherit-product, device/razer/pearlyn/common_mini_tv.mk)
 PRODUCT_DEVICE := pearlyn
 PRODUCT_NAME := lineage_pearlyn
 PRODUCT_MODEL := Forge TV
+TARGET_VENDOR := razer
 
 # SH LANGUAGE SET
 PRODUCT_DEFAULT_LANGUAGE := en
