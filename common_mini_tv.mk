@@ -84,9 +84,6 @@ PRODUCT_COPY_FILES += \
 # Include CM audio files
 include vendor/cm/config/cm_audio.mk
 
-# Theme engine
-include vendor/cm/config/themes_common.mk
-
 ifneq ($(TARGET_DISABLE_CMSDK), true)
 # CMSDK
 include vendor/cm/config/cmsdk_common.mk
@@ -190,13 +187,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Storage manager
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.storage_manager.enabled=true
-
-# Telephony
-PRODUCT_PACKAGES += \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
 
 # These packages are excluded from user builds
 ifneq ($(TARGET_BUILD_VARIANT),user)
