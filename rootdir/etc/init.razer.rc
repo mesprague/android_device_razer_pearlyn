@@ -14,13 +14,6 @@ service razer-info-sh /init.razer.info.sh
    oneshot
    seclabel u:r:razer-info-sh:s0
 
-service razer-ping-sh /init.razer.ping.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-    seclabel u:r:razer-ping-sh:s0
-
 service razerdate /system/bin/date -s 20150101
    oneshot
    disabled
@@ -38,7 +31,6 @@ on fs
 # on property:dev.bootcomplete=1
 on boot
     start razer-periph-sh
-    start razer-ping-sh
     start razer-info-sh
     start valiService
 
