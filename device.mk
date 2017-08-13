@@ -43,7 +43,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.adb.secure=0 \
 	ro.secure=0 \
 	ro.debuggable=1 \
-	ro.hardware=qcom \
 	persist.sys.usb.config=mtp
 	
 # Rootdir
@@ -146,7 +145,6 @@ PRODUCT_COPY_FILES += \
 
 # Build.prop overrides
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.product.board=apq8084 \
 	net.bt.name=Forge \
 	dalvik.vm.dex2oat-swap=false \
 	ro.product.first_api_level=22 \
