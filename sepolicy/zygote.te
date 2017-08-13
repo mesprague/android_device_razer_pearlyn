@@ -16,6 +16,14 @@ allow zygote razer_prop:file { getattr open read };
 allow zygote time_daemon:unix_stream_socket connectto;
 allow zygote debugfs_tracing:dir search;
 allow zygote debugfs_trace_marker:file { open write };
+allow zygote app_data_file:dir getattr;
+allow zygote gpu_device:chr_file { ioctl open read write };
+allow zygote surfaceflinger:binder { call transfer };
+allow zygote surfaceflinger:fd use;
+allow zygote surfaceflinger:unix_stream_socket { read write };
+allow zygote system_data_file:dir { add_name create remove_name setattr write };;
+allow zygote system_server:unix_stream_socket { read write };
+allow zygote user_profile_data_file:file { lock open read write };
 
 #debugfs access
 userdebug_or_eng(`
