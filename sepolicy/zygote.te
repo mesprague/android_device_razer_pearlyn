@@ -25,6 +25,7 @@ allow zygote system_data_file:dir { add_name create remove_name setattr write };
 allow zygote system_server:unix_stream_socket { read write };
 allow zygote user_profile_data_file:file { lock open read write };
 allow zygote priv_app:binder call;
+allow zygote untrusted_app:binder call;
 allow zygote adbsecure_prop:file { getattr open read };
 
 #debugfs access
