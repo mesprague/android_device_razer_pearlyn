@@ -141,9 +141,7 @@ BOARD_USES_QC_TIME_SERVICES := true
  -include device/qcom/sepolicy/sepolicy.mk
 
 # Enable dex-preoptimization to speed up first boot sequence
-WITH_DEXPREOPT := true
 WITH_DEXPREOPT_BOOT_IMG_ONLY := true
-DONT_DEXPREOPT_PREBUILTS := true
 
 # DRM Protected Video
 BOARD_USES_LIBDRM := true
