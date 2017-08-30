@@ -12,3 +12,10 @@
 /system/bin/date								u:object_r:razerdate_exec:s0
 
 #################
+
+#################################
+# sysfs led files
+#
+/sys/devices/leds-qpnp-e6f58400/leds/pearlyn/brightness				u:object_r:sysfs_led:s0
+
+#################

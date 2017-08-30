@@ -1,2 +1,2 @@
-type proc_led_device, file_type;
+type sysfs_led, fs_type, sysfs_type;
 type proc_usb_device, file_type;

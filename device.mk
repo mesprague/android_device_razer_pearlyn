@@ -124,6 +124,10 @@ PRODUCT_PACKAGES += \
 # Launcher Mod Apps (thanks to CM13 for fugu)
 PRODUCT_PACKAGES += \
 	AppDrawer	
+	
+# LedPearlyn
+PRODUCT_PACKAGES += \
+	LedPearlyn	
 
 # Permissions
 PRODUCT_COPY_FILES += \

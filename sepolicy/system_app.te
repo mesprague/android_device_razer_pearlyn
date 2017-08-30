@@ -1,0 +1,1 @@
+allow system_app sysfs_led:file { getattr open write };
