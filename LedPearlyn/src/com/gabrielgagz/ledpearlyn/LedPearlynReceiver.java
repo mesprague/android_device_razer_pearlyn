@@ -18,24 +18,16 @@ public class LedPearlynReceiver extends BroadcastReceiver {
             context.startService(serviceIntent);
             Log.i("LedPearlyn","Started");
         // Shutdown the led if device goes to Daydream or Sleep   
-        } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
+        } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF) || intent.getAction().equals(Intent.ACTION_DREAMING_STARTED)) {
 			writeledvalue("0");
             wasScreenOn = false;
             Log.i("LedPearlyn","Off"); 
         // Set the brightness to max if the devices wakes up from sleep or Daydream    
-        } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
+        } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON) || intent.getAction().equals(Intent.ACTION_DREAMING_STOPPED)) {
 			writeledvalue("255"); 
             wasScreenOn = true;
             Log.i("LedPearlyn","On");
-        }  else if (intent.getAction().equals(Intent.ACTION_DREAMING_STARTED)) {
-			writeledvalue("0"); 
-            wasScreenOn = true;
-            Log.i("LedPearlyn","Off");
-        }  else if (intent.getAction().equals(Intent.ACTION_DREAMING_STOPPED)) {
-			writeledvalue("255"); 
-            wasScreenOn = true;
-            Log.i("LedPearlyn","On");
-        }        
+        } 
     }
     
     public void writeledvalue(String value) {
