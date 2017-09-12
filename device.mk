@@ -125,9 +125,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	AppDrawer	
 	
-# LedPearlyn
+# CMActions
 PRODUCT_PACKAGES += \
-	LedPearlyn	
+	CMActions	
 
 # Permissions
 PRODUCT_COPY_FILES += \

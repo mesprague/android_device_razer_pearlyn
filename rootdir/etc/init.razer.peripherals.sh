@@ -45,21 +45,21 @@ if [ -f /proc/usb ] && [ -f /proc/usb_device ]; then
     state=`getprop persist.sys.rzr.device_mode`
     if [ "a$val" == "adev" ] || [ "a$val" == "aDEV" ]; then
         echo 0 > /proc/usb_device
-        setprop persist.sys.rzr.device_mode 0
+        setprop persist.sys.rzr.device_mode true
         logi "override usb should be in device mode"
     elif [ "a$val" == "ahst" ] || [ "a$val" == "aHST" ]; then
         echo 1 > /proc/usb_device
-        setprop persist.sys.rzr.device_mode 1
+        setprop persist.sys.rzr.device_mode false
         logi "override usb should be in host mode"
     else
         logi "usb should be in default mode"
-        if [ "$state" == "0" ]; then
+        if [ "$state" == "true" ]; then
             echo 0 > /proc/usb_device
-        elif [ "$state" == "1" ]; then
+        elif [ "$state" == "false" ]; then
             echo 1 > /proc/usb_device
         else
             echo 1 > /proc/usb_device
-            setprop persist.sys.rzr.device_mode 1
+            setprop persist.sys.rzr.device_mode false
         fi
     fi
 fi

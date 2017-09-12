@@ -1,4 +1,4 @@
-package com.gabrielgagz.ledpearlyn;
+package com.cyanogenmod.cmactions;
  
 import android.app.Service;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.content.BroadcastReceiver;
 
-public class LedPearlynService extends Service {
+public class CMActionsService extends Service {
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -25,13 +25,13 @@ public class LedPearlynService extends Service {
 		filter.addAction(Intent.ACTION_SCREEN_OFF);
 		filter.addAction(Intent.ACTION_DREAMING_STARTED);
 		filter.addAction(Intent.ACTION_DREAMING_STOPPED);
-		final BroadcastReceiver mReceiver = new LedPearlynReceiver();
+		final BroadcastReceiver mReceiver = new BootCompletedReceiver();
 		registerReceiver(mReceiver, filter);
 		return super.onStartCommand(intent, flags, startId);
 		}
 	public class LocalBinder extends Binder {
-		LedPearlynService getService() {
-		return LedPearlynService.this;
+		CMActionsService getService() {
+		return CMActionsService.this;
 		}
 	}
 }

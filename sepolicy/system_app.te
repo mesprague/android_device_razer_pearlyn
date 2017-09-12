@@ -1,1 +1,3 @@
 allow system_app sysfs_led:file { getattr open write };
+allow system_app persist_sys_rzr:file { getattr open read };
+allow system_app proc_usb_device:file { getattr open write };

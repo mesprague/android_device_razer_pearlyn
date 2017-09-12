@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest android:versionCode="1" android:versionName="1.0" package="com.cyanogenmod.cmactions" platformBuildVersionCode="25" platformBuildVersionName="7.1.2"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:sharedUserId="android.uid.system"
+  coreApp="true">
+ <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+ <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
+        <application android:label="@string/app_name"
+					 android:icon="@drawable/ic_cmactions"
+					 android:persistent="true" >
+		<receiver android:name="com.cyanogenmod.cmactions.BootCompletedReceiver">
+		<intent-filter>
+			<action android:name="android.intent.action.BOOT_COMPLETED" />
+        </intent-filter>
+        </receiver>
+  
+		<service android:name="com.cyanogenmod.cmactions.CMActionsService"
+        android:enabled="true"
+        android:exported="true">
+        </service>
+       
+        <activity
+            android:name=".DeviceModeActivity"
+            android:label="@string/cmactions_title"
+            android:theme="@style/Theme.Leanback">
+            <intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LEANBACK_SETTINGS" />
+           </intent-filter>     
+           </activity>
+    </application>
+</manifest>

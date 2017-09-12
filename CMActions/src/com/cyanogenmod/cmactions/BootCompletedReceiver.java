@@ -1,4 +1,4 @@
-package com.gabrielgagz.ledpearlyn;
+package com.cyanogenmod.cmactions;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.util.Log;
 import java.io.*;
 
-public class LedPearlynReceiver extends BroadcastReceiver {
+public class BootCompletedReceiver extends BroadcastReceiver {
 
     public static boolean wasScreenOn = true;
 
@@ -14,7 +14,7 @@ public class LedPearlynReceiver extends BroadcastReceiver {
     public void onReceive(final Context context, final Intent intent) {
 		// Start the service on boot
 		if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
-            Intent serviceIntent = new Intent(context, LedPearlynService.class);
+            Intent serviceIntent = new Intent(context, CMActionsService.class);
             context.startService(serviceIntent);
             Log.i("LedPearlyn","Started");
         // Shutdown the led if device goes to Daydream or Sleep   
