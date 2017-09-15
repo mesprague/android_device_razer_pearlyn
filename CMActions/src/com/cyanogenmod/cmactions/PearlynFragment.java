@@ -20,33 +20,30 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
+import android.preference.PreferenceManager; 
 import android.provider.Settings;
 import android.os.SystemProperties;
 import java.io.*;
 import java.util.prefs.*;
 
-public class DeviceModeFragment extends PreferenceFragment {
+public class PearlynFragment extends PreferenceFragment {
 
-    private static final String KEY_PEARLYN_ACTIONS_ENABLE = "pearlyn_actions_enable";
+    private static final String DEVICE_MODE_KEY = "device_mode_key";
     private static final String DEVICE_MODE_PROPERTY = "persist.sys.rzr.device_mode";
-
-    private SwitchPreference mDeviceModePreference;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.device_mode);
-        boolean DeviceModeEnabled = isDeviceModeEnabled();
-        mDeviceModePreference =
-            (SwitchPreference) findPreference(KEY_PEARLYN_ACTIONS_ENABLE);
-        mDeviceModePreference.setChecked(DeviceModeEnabled);
-        mDeviceModePreference.setOnPreferenceChangeListener(mDeviceModePrefListener);
+		PreferenceManager preferenceManager = getPreferenceManager();
+    if (preferenceManager.getSharedPreferences().getBoolean(DEVICE_MODE_KEY, true)){
+        handleDeviceMode(0);
+		System.setProperty(DEVICE_MODE_PROPERTY, "true");
+    } else {
+        handleDeviceMode(1);
+		System.setProperty(DEVICE_MODE_PROPERTY, "false");
     }
-    
-    private boolean isDeviceModeEnabled() {
-	    return SystemProperties.getBoolean(DEVICE_MODE_PROPERTY, false);
-	}
-  
+    }
     
     private void handleDeviceMode(int value) {
     try {
@@ -62,19 +59,4 @@ public class DeviceModeFragment extends PreferenceFragment {
 			}
     }
 
-
-    private Preference.OnPreferenceChangeListener mDeviceModePrefListener =
-        new Preference.OnPreferenceChangeListener() {
-        @Override
-        public boolean onPreferenceChange(Preference preference, Object newValue) {
-             if (newValue.toString().equals("true")) {
-				handleDeviceMode(0);
-				System.setProperty(DEVICE_MODE_PROPERTY, "true");
-			} else {
-			handleDeviceMode(1);
-			System.setProperty(DEVICE_MODE_PROPERTY, "false");
-			}
-			return false;
-        }
-    };
 }

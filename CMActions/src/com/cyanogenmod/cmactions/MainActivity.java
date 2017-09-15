@@ -20,14 +20,13 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.view.MenuItem;
 
-public class DeviceModeActivity extends PreferenceActivity {
+public class MainActivity extends PreferenceActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      /*  getActionBar().setDisplayHomeAsUpEnabled(true); */
         getFragmentManager().beginTransaction()
-                .replace(android.R.id.content, new DeviceModeFragment()).commit();
+                .replace(android.R.id.content, new PearlynFragment()).commit();
     }
 
     @Override

@@ -14,14 +14,9 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <PreferenceCategory
-        android:key="forge_options_key">
-
         <SwitchPreference
-            android:key="pearlyn_actions_enable"
+            android:key="device_mode_key"
             android:defaultValue="false"
             android:title="@string/device_mode_title" />
-
-    </PreferenceCategory>
 
 </PreferenceScreen>

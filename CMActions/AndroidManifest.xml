@@ -20,7 +20,7 @@
         </service>
        
         <activity
-            android:name=".DeviceModeActivity"
+            android:name=".MainActivity"
             android:label="@string/cmactions_title"
             android:theme="@style/Theme.Leanback">
             <intent-filter>
