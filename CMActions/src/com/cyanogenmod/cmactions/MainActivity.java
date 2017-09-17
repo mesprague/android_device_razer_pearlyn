@@ -16,26 +16,66 @@
 
 package com.cyanogenmod.cmactions;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import android.view.MenuItem;
+import android.view.Menu;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.Switch;
+import android.os.SystemProperties;
+import android.util.Log;
+import java.io.*;
+import java.util.prefs.*;
 
-public class MainActivity extends PreferenceActivity {
+public class MainActivity extends Activity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getFragmentManager().beginTransaction()
-                .replace(android.R.id.content, new PearlynFragment()).commit();
+private Switch DeviceModeSwitch;
+
+    private void handleDeviceMode(String value) {
+    try {
+			String f = "/proc/usb_device";
+			FileWriter w = new FileWriter(f);
+			BufferedWriter bw = new BufferedWriter(w);
+			PrintWriter wr = new PrintWriter(bw);
+			wr.write(value); 
+			wr.close();
+			bw.close();
+            } catch(IOException e) {
+            e.printStackTrace();
+			}
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-        }
-        return false;
-    }
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
+	setContentView(R.layout.activity_main);
+
+DeviceModeSwitch = (Switch) findViewById(R.id.DeviceModeSwitch);
+
+// Initial state
+DeviceModeSwitch.setChecked(true);
+
+// attach a listener to check for changes in state
+DeviceModeSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+@Override
+public void onCheckedChanged(CompoundButton buttonView,
+	boolean isChecked) {
+
+		if (isChecked) {
+
+			handleDeviceMode("0");
+			System.setProperty("persist.sys.rzr.device_mode", "true");
+			Log.i("Device Mode","On");
+
+			} else {
+
+			handleDeviceMode("1");
+			System.setProperty("persist.sys.rzr.device_mode", "false");
+			Log.i("Device Mode","Off");
+		}
+
+		}
+		});
+}
 }
