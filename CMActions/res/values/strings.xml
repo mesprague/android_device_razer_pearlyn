@@ -16,6 +16,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 	<string name="app_name">CMActions</string>
-     <string name="cmactions_title">Forge TV Settings</string>
+     <string name="cmactions_title">Forge TV Options</string>
      <string name="device_mode_title">Device Mode</string>
 </resources>
