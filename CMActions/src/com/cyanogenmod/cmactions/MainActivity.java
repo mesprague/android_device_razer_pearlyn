@@ -31,6 +31,7 @@ public class MainActivity extends Activity {
 
 private Switch DeviceModeSwitch;
 
+	// Write into usb_device file
     private void handleDeviceMode(String value) {
     try {
 			String f = "/proc/usb_device";
@@ -44,6 +45,40 @@ private Switch DeviceModeSwitch;
             e.printStackTrace();
 			}
     }
+    
+    // Get the system property
+    public static String getsysprop() {
+    InputStreamReader in = null;
+    BufferedReader reader = null;
+    try {
+        Process proc = Runtime.getRuntime().exec(new String[]{"/system/bin/getprop", "persist.sys.rzr.device_mode"});
+        in = new InputStreamReader(proc.getInputStream());
+        reader = new BufferedReader(in);
+        return reader.readLine();
+    } catch (IOException e) {
+        return null;
+    } finally {
+        closeQuietly(in);
+        closeQuietly(reader);
+    }
+}
+
+public static void closeQuietly(Closeable closeable) {
+    if (closeable == null) return;
+    try {
+        closeable.close();
+    } catch (IOException ignored) {
+    }
+}
+	
+	// Set the system property
+	private void setsysprop(String value) {
+	try {
+	String[] cmd = { "/system/bin/sh", "-c", "setprop persist.sys.rzr.device_mode " + value};	
+    Runtime.getRuntime().exec(cmd);
+	} catch (java.io.IOException e) {
+	}
+	}
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +88,8 @@ protected void onCreate(Bundle savedInstanceState) {
 DeviceModeSwitch = (Switch) findViewById(R.id.DeviceModeSwitch);
 
 // Initial state
-DeviceModeSwitch.setChecked(true);
+String initialstate = getsysprop();
+if (initialstate.equals("true")) { DeviceModeSwitch.setChecked(true); } else { DeviceModeSwitch.setChecked(false); }
 
 // attach a listener to check for changes in state
 DeviceModeSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -65,13 +101,13 @@ public void onCheckedChanged(CompoundButton buttonView,
 		if (isChecked) {
 
 			handleDeviceMode("0");
-			System.setProperty("persist.sys.rzr.device_mode", "true");
+			setsysprop("true");
 			Log.i("Device Mode","On");
 
 			} else {
 
 			handleDeviceMode("1");
-			System.setProperty("persist.sys.rzr.device_mode", "false");
+			setsysprop("false");
 			Log.i("Device Mode","Off");
 		}
 
