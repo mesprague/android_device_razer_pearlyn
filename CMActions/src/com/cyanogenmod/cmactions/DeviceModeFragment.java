@@ -1,5 +1,4 @@
 /*
- * Copyright (C) 2016 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,8 +43,30 @@ public class DeviceModeFragment extends PreferenceFragment {
         mDeviceModePreference.setOnPreferenceChangeListener(mDeviceModePrefListener);
     }
     
-    private boolean isDeviceModeEnabled() {
-	    return SystemProperties.getBoolean(DEVICE_MODE_PROPERTY, false);
+        // Get the system property
+    public static Boolean isDeviceModeEnabled() {
+    InputStreamReader in = null;
+    BufferedReader reader = null;
+    try {
+        Process proc = Runtime.getRuntime().exec(new String[]{"/system/bin/getprop", "persist.sys.rzr.device_mode"});
+        in = new InputStreamReader(proc.getInputStream());
+        reader = new BufferedReader(in);
+        Boolean b = Boolean.valueOf(reader.readLine());
+        return b;
+    } catch (IOException e) {
+        return null;
+    } finally {
+        closeQuietly(in);
+        closeQuietly(reader);
+    }
+	}
+
+	public static void closeQuietly(Closeable closeable) {
+    if (closeable == null) return;
+    try {
+        closeable.close();
+    } catch (IOException ignored) {
+    }
 	}
 	
 	// Set the system property

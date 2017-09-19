@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2017 Gabriel Gomez <g.a.gomez@gmail.com>
+<!-- Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -18,4 +17,5 @@
 	<string name="app_name">CMActions</string>
      <string name="cmactions_title">Forge TV Options</string>
      <string name="device_mode_title">Device Mode</string>
+     <string name="device_mode_desc">Set on/off to use adb over usb port. This will disconnect any usb stick/drive attached.</string>
 </resources>
