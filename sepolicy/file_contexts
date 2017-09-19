@@ -14,8 +14,9 @@
 #################
 
 #################################
-# sysfs led files
+# /proc files
 #
-/sys/devices/leds-qpnp-e6f58400/leds/pearlyn/brightness				u:object_r:sysfs_led:s0
+/proc/led_device				u:object_r:proc_led_device:s0
+/proc/usb_device				u:object_r:proc_usb_device:s0
 
 #################

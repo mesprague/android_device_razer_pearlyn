@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 	 Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -12,7 +13,6 @@
      limitations under the License.
 -->
 
-<?xml version="1.0" encoding="utf-8"?>
 <manifest android:versionCode="1" android:versionName="1.0" package="com.cyanogenmod.cmactions" platformBuildVersionCode="25" platformBuildVersionName="7.1.2"
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:sharedUserId="android.uid.system"

@@ -34,7 +34,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
             Log.i("LedPearlyn","Started");
         // Shutdown the led if device goes to Daydream or Sleep   
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF) || intent.getAction().equals(Intent.ACTION_DREAMING_STARTED)) {
-			writeledvalue("0");
+			writeledvalue("1");
             wasScreenOn = false;
             Log.i("LedPearlyn","Off"); 
         // Set the brightness to max if the devices wakes up from sleep or Daydream    
@@ -47,7 +47,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     
     public void writeledvalue(String value) {
     try {
-			String f = "/sys/devices/leds-qpnp-e6f58400/leds/pearlyn/brightness";
+			String f = "/proc/led_device";
 			FileWriter w = new FileWriter(f);
 			BufferedWriter bw = new BufferedWriter(w);
 			PrintWriter wr = new PrintWriter(bw);
