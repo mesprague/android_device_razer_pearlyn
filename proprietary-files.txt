@@ -218,7 +218,6 @@ proprietary/vendor/lib/libcneconn.so
 proprietary/vendor/lib/libQSEEComAPI.so
 proprietary/vendor/lib/libmm-abl.so
 proprietary/vendor/lib/egl/libq3dtools_adreno.so
-proprietary/vendor/lib/egl/libQTapGLES.so
 proprietary/vendor/lib/egl/eglSubDriverAndroid.so
 proprietary/vendor/lib/egl/libq3dtools_esx.so
 proprietary/vendor/lib/egl/libEGL_adreno.so
