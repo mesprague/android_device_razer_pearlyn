@@ -97,7 +97,7 @@ PRODUCT_PACKAGES += \
 # Required CM packages
 PRODUCT_PACKAGES += \
     BluetoothExt \
-    CMAudioService \\
+    CMAudioService \
     Profiles
 
 # Optional CM packages
