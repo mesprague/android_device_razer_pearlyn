@@ -207,9 +207,6 @@ on boot
     write /sys/module/intelli_plug/parameters/intelli_plug_active 1
     write /sys/module/intelli_plug/parameters/nr_run_profile_sel 1
     write /sys/module/intelli_plug/parameters/nr_run_hysteresis 4
-    setprop service.adb.tcp.port 5555
-	stop adbd
-	start adbd
 
 # msm specific files that need to be created on /data
 on post-fs-data

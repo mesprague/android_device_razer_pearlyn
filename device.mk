@@ -37,13 +37,6 @@ PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/etc,system/e
 
 # Keylayout files
 PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,$(LOCAL_PATH)/keylayout,system/usr/keylayout) 
-
-# Let's put adb insecure on boot, for debug purposes	
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.adb.secure=0 \
-	ro.secure=0 \
-	ro.debuggable=1 \
-	persist.sys.usb.config=mtp
 	
 # Rootdir
 PRODUCT_PACKAGES += \
