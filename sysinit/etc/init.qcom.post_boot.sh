@@ -608,6 +608,7 @@ case "$target" in
         echo 1024 > /sys/block/sdf/bdi/read_ahead_kb
         echo 1024 > /sys/block/sdg/bdi/read_ahead_kb
         echo 1024 > /sys/block/sdh/bdi/read_ahead_kb
+        echo '9706,14559,29118,48530,67942,72795' > /sys/module/lowmemorykiller/parameters/minfree
     ;;
     "msm7627a")
         if [ -f /sys/devices/soc0/soc_id ]; then
