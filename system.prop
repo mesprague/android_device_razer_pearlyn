@@ -73,7 +73,6 @@ persist.fuse_sdcard=true
 
 # Debug
 debug.atrace.tags.enableflags=0
-ro.adb.secure=1
 
 # Wfd
 persist.debug.wfd.enable=1
