@@ -71,6 +71,9 @@ proprietary/bin/diag_dci_sample
 proprietary/bin/dpmd
 proprietary/app/LeanbackIme/LeanbackIme.apk
 proprietary/app/TimeService/TimeService.apk
+proprietary/lib/libaudiopolicyenginedefault.so
+proprietary/lib/libaudiopolicymanager.so
+proprietary/lib/libaudiopolicymanagerdefault.so
 proprietary/lib/libqti_performance.so
 proprietary/lib/libgoogle_tagger_aah_jni.so
 proprietary/lib/libqomx_core.so
