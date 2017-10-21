@@ -61,11 +61,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_HAVE_HDMI_OUT := true
 TARGET_USE_HDMI_AS_PRIMARY := true
 
-# Vold
-BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
-BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
-BOARD_VOLD_MAX_PARTITIONS := 40
-
 # inherit from the proprietary version
 -include vendor/razer/pearlyn/BoardConfigVendor.mk
 
