@@ -480,7 +480,7 @@ case "$target" in
         echo 300000 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
         echo 300000 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
         echo 1 > /sys/module/msm_thermal/core_control/enabled
-        setprop ro.qualcomm.perf.cores_online 2
+        #setprop ro.qualcomm.perf.cores_online 2
         chown -h  system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
         chown -h system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
         chown -h root.system /sys/devices/system/cpu/mfreq
@@ -598,7 +598,7 @@ case "$target" in
     ;;
     "apq8084")
         rm /data/system/perfd/default_values
-        #start mpdecision
+        start mpdecision
         echo 1024 > /sys/block/mmcblk0/bdi/read_ahead_kb
         echo 1024 > /sys/block/sda/bdi/read_ahead_kb
         echo 1024 > /sys/block/sdb/bdi/read_ahead_kb

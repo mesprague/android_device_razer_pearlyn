@@ -20,3 +20,10 @@
 /proc/usb_device				u:object_r:proc_usb_device:s0
 
 #################
+
+#################################
+# /data files
+#
+/data/system/default_values				u:object_r:data_default_values:s0
+
+#################

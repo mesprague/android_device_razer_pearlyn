@@ -36,6 +36,7 @@ proprietary/bin/ptt_socket_app
 proprietary/bin/diag_callback_client
 proprietary/bin/hci_qcomm_init
 proprietary/bin/mm-qjpeg-enc-test
+proprietary/bin/mpdecision
 proprietary/bin/razerdrm
 proprietary/bin/mm-qjpeg-dec-test
 proprietary/bin/ks
