@@ -29,7 +29,6 @@ mm.enable.smoothstreaming=true
 mm.enable.qcom_parser=3183219
 persist.mm.enable.prefetch=true
 debug.enable.sglscale=1
-media.stagefright.use-awesome=true
 
 # Audio
 ro.qc.sdk.audio.fluencetype=none
