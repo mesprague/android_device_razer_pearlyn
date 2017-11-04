@@ -344,5 +344,6 @@ Only the three quirks included above are recognized at this point:
             <Feature name="secure-playback" required="true" />
         </MediaCodec>
     </Decoders>
+    <Include href="media_codecs_google_tv.xml" />
     <Include href="media_codecs_google_video.xml" />
 </MediaCodecs>
