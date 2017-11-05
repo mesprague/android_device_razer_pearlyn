@@ -181,9 +181,6 @@ on boot
     
     # gabrielgagz tweaks
     write /sys/block/mmcblk0/queue/scheduler fiops
-    write /sys/module/intelli_plug/parameters/intelli_plug_active 1
-    write /sys/module/intelli_plug/parameters/nr_run_profile_sel 1
-    write /sys/module/intelli_plug/parameters/nr_run_hysteresis 4
 
 # msm specific files that need to be created on /data
 on post-fs-data
