@@ -181,6 +181,9 @@ on boot
     
     # gabrielgagz tweaks
     write /sys/block/mmcblk0/queue/scheduler fiops
+    setprop service.adb.tcp.port 5555		
+ 	stop adbd		
+ 	start adbd
 
 # msm specific files that need to be created on /data
 on post-fs-data
