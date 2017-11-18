@@ -81,6 +81,7 @@ proprietary/lib/libqomx_core.so
 proprietary/lib/libdashplayer.so
 proprietary/lib/libantradio.so
 proprietary/lib/libdivxdrmdecrypt.so
+proprietary/lib/libhdmi.so
 proprietary/lib/libiw.so
 proprietary/lib/libextmedia_jni.so
 proprietary/lib/libGLES_trace.so
