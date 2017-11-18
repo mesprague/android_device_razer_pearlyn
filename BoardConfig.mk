@@ -41,12 +41,6 @@ BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 TARGET_KERNEL_CONFIG := pearlyn_defconfig
 TARGET_KERNEL_SOURCE := kernel/razer/pearlyn
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
-WLAN_MODULES:
-	mkdir -p $(KERNEL_MODULES_OUT)/qca_cld
-	mv $(KERNEL_MODULES_OUT)/wlan.ko $(KERNEL_MODULES_OUT)/qca_cld/qca_cld_wlan.ko
-	ln -sf /system/lib/modules/qca_cld/qca_cld_wlan.ko $(TARGET_OUT)/lib/modules/wlan.ko
-  
-TARGET_KERNEL_MODULES += WLAN_MODULES
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 15309209
