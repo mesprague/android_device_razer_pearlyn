@@ -80,9 +80,6 @@ TARGET_USE_SDCLANG := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := APQ8084
 
-# Init
-TARGET_INIT_VENDOR_LIB := libinit_pearlyn
-
 # Graphics & Display
 TARGET_QCOM_DISPLAY_VARIANT := caf
 BOARD_EGL_CFG := $(PEARLYN_PATH)/egl/egl.cfg

@@ -114,6 +114,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CMSettingsProvider \
     Updater \
+    LineageSetupWizard \
     WallpaperPicker
     
 # Extra tools in CM
