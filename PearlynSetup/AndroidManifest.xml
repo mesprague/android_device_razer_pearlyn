@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.bluetooth" android:noHistory="true" package="org.cyanogenmod.pearlynsetup" android:versionCode="1" android:versionName="1.0" platformBuildVersionCode="25" platformBuildVersionName="7.1.2">
+    <uses-feature android:name="com.google.android.tv" android:required="true"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <application android:exported="true" android:icon="@mipmap/ic_launcher" android:label="PearlynSetup" android:theme="@style/Theme.Leanback">
+        <activity android:label="PearlynSetupActivity" android:name=".MainActivity" android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="com.android.setupwizard.action.PRE_CORE_SETUP"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

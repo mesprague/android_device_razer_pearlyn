@@ -120,9 +120,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	AppDrawer	
 	
-# CMActions
+# CMActions & PearlynSetup
 PRODUCT_PACKAGES += \
-	CMActions	
+	CMActions \
+	PearlynSetup
 
 # Permissions
 PRODUCT_COPY_FILES += \
