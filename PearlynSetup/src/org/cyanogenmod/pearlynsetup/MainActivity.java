@@ -18,11 +18,6 @@ package org.cyanogenmod.pearlynsetup;
 import android.os.Bundle;
 import android.app.Activity;
 import android.bluetooth.*;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
-import android.widget.GridLayout.LayoutParams;
 import android.content.pm.PackageManager;
 import android.content.ComponentName;
 
@@ -31,27 +26,14 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
         
         /* Enable Bluetooth onCreate */
         BluetoothAdapter mBtAdapter = BluetoothAdapter.getDefaultAdapter(); 
 		if (! mBtAdapter.isEnabled()) {
 		mBtAdapter.enable(); 
 		}
-		
-		/* Draw the tutorial image */
-		ImageView ARImage = new ImageView(getApplicationContext());
-        ARImage.setImageResource(R.drawable.tutorial);
-        RelativeLayout rl = new RelativeLayout(this);
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-		getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-		int h = displayMetrics.heightPixels;
-		int w = displayMetrics.widthPixels;
-        RelativeLayout.LayoutParams position = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        ARImage.setLayoutParams(position);  
 
-        position.addRule(RelativeLayout.CENTER_IN_PARENT);
-        rl.addView(ARImage, position);  
-        setContentView(rl); 
     }
     
     @Override
