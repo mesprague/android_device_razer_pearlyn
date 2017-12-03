@@ -20,22 +20,38 @@ import android.app.Activity;
 import android.bluetooth.*;
 import android.content.pm.PackageManager;
 import android.content.ComponentName;
+import android.content.Intent;
 
 public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
         
-        /* Enable Bluetooth onCreate */
-        BluetoothAdapter mBtAdapter = BluetoothAdapter.getDefaultAdapter(); 
-		if (! mBtAdapter.isEnabled()) {
-		mBtAdapter.enable(); 
-		}
+        PackageManager pm = getPackageManager();
+        try {
+            pm.getPackageInfo("com.google.android.gms",PackageManager.GET_ACTIVITIES);
+            setContentView(R.layout.main);
+			/* Enable Bluetooth onCreate */
+			BluetoothAdapter mBtAdapter = BluetoothAdapter.getDefaultAdapter(); 
+			if (! mBtAdapter.isEnabled()) {
+			mBtAdapter.enable(); 
+			}
+			/* Call AtvRemoteService */
+			Intent i = new Intent();
+			String pkg = "com.google.android.tv.remote.service";
+			String cls = "com.google.android.tv.remote.service.DiscoveryService";
+			i.setComponent(new ComponentName(pkg, cls));
+			startService(i);
+            
+			}	
+			catch (PackageManager.NameNotFoundException e) {
+				finish();
+			}
 
     }
     
+    /* Kill the app pressing "Back" button */
     @Override
 	public void onBackPressed() {
 		finish();
@@ -46,9 +62,12 @@ public class MainActivity extends Activity {
 	public void onDestroy()
 	{
 		try{
+			/* Disable Package */
 			PackageManager localPackageManager = getPackageManager();
 			localPackageManager.setComponentEnabledSetting(new ComponentName("org.cyanogenmod.pearlynsetup", "org.cyanogenmod.pearlynsetup.MainActivity"), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, 1);
 			} catch (Exception e) {}
+			
+		/* Kill app */	
 		android.os.Process.killProcess(android.os.Process.myPid());
 		super.onDestroy();
 	}
