@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package org.cyanogenmod.pearlynsetup;
+package com.cyanogenmod.pearlynsetup;
 
 import android.os.Bundle;
 import android.app.Activity;
