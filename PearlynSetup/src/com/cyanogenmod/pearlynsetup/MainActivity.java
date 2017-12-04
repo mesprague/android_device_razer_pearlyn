@@ -21,6 +21,7 @@ import android.bluetooth.*;
 import android.content.pm.PackageManager;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ActivityNotFoundException;
 
 public class MainActivity extends Activity {
 
@@ -38,12 +39,10 @@ public class MainActivity extends Activity {
 			mBtAdapter.enable(); 
 			}
 			/* Call AtvRemoteService */
-			Intent i = new Intent();
-			String pkg = "com.google.android.tv.remote.service";
-			String cls = "com.google.android.tv.remote.service.DiscoveryService";
-			i.setComponent(new ComponentName(pkg, cls));
-			startService(i);
-            
+			Intent intent = new Intent(Intent.ACTION_MAIN); 
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
+			intent.setClassName("com.google.android.tv.remote.service", "com.google.android.tv.remote.service.DiscoveryService"); 
+			startActivity(intent);
 			}	
 			catch (PackageManager.NameNotFoundException e) {
 				finish();
@@ -61,15 +60,30 @@ public class MainActivity extends Activity {
 	@Override
 	public void onDestroy()
 	{
-		try{
+		try {
+			/* Call Google's Setup Wizard */
+            Intent intent = new Intent(Intent.ACTION_MAIN); 
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
+			intent.setClassName("com.google.android.tungsten.setupwraith", "com.google.android.tungsten.setupwraith.MainActivity"); 
+			startActivity(intent);
+			}	
+			catch (ActivityNotFoundException e) {
+			/* Call Default Launcher */
+			Intent startMain = new Intent(Intent.ACTION_MAIN);
+			startMain.addCategory(Intent.CATEGORY_HOME);
+			startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			startActivity(startMain);
+			}
+			
+		try{ 
 			/* Disable Package */
 			PackageManager localPackageManager = getPackageManager();
 			localPackageManager.setComponentEnabledSetting(new ComponentName("org.cyanogenmod.pearlynsetup", "org.cyanogenmod.pearlynsetup.MainActivity"), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, 1);
 			} catch (Exception e) {}
 			
-		/* Kill app */	
-		android.os.Process.killProcess(android.os.Process.myPid());
-		super.onDestroy();
+			/* Kill app */	
+			android.os.Process.killProcess(android.os.Process.myPid());
+			super.onDestroy();
 	}
 
 }
