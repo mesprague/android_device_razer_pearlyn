@@ -21,7 +21,6 @@ import android.bluetooth.*;
 import android.content.pm.PackageManager;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.content.ActivityNotFoundException;
 
 public class MainActivity extends Activity {
 
@@ -39,10 +38,11 @@ public class MainActivity extends Activity {
 			mBtAdapter.enable(); 
 			}
 			/* Call AtvRemoteService */
-			Intent intent = new Intent(Intent.ACTION_MAIN); 
-			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
-			intent.setClassName("com.google.android.tv.remote.service", "com.google.android.tv.remote.service.DiscoveryService"); 
-			startActivity(intent);
+			Intent i = new Intent();		 
+ 			String pkg = "com.google.android.tv.remote.service";
+ 			String cls = "com.google.android.tv.remote.service.DiscoveryService"; 
+ 			i.setComponent(new ComponentName(pkg, cls));
+ 			startService(i);
 			}	
 			catch (PackageManager.NameNotFoundException e) {
 				finish();
@@ -59,22 +59,7 @@ public class MainActivity extends Activity {
 	
 	@Override
 	public void onDestroy()
-	{
-		try {
-			/* Call Google's Setup Wizard */
-            Intent intent = new Intent(Intent.ACTION_MAIN); 
-			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); 
-			intent.setClassName("com.google.android.tungsten.setupwraith", "com.google.android.tungsten.setupwraith.MainActivity"); 
-			startActivity(intent);
-			}	
-			catch (ActivityNotFoundException e) {
-			/* Call Default Launcher */
-			Intent startMain = new Intent(Intent.ACTION_MAIN);
-			startMain.addCategory(Intent.CATEGORY_HOME);
-			startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			startActivity(startMain);
-			}
-			
+	{			
 		try{ 
 			/* Disable Package */
 			PackageManager localPackageManager = getPackageManager();
