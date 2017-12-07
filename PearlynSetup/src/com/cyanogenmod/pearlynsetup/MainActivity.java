@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
  			startService(i);
 			}	
 			catch (PackageManager.NameNotFoundException e) {
-				finish();
+				disableandkill();
 			}
 
     }
@@ -53,22 +53,22 @@ public class MainActivity extends Activity {
     /* Kill the app pressing "Back" button */
     @Override
 	public void onBackPressed() {
-		finish();
-		super.onBackPressed();
+		disableandkill();
 	}
 	
-	@Override
-	public void onDestroy()
+	private void disableandkill()
 	{			
 		try{ 
 			/* Disable Package */
 			PackageManager localPackageManager = getPackageManager();
 			localPackageManager.setComponentEnabledSetting(new ComponentName("org.cyanogenmod.pearlynsetup", "org.cyanogenmod.pearlynsetup.MainActivity"), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, 1);
 			} catch (Exception e) {}
-			
-			/* Kill app */	
-			android.os.Process.killProcess(android.os.Process.myPid());
-			super.onDestroy();
+			/* Call the launcher & Kill app */	
+			Intent startMain = new Intent(Intent.ACTION_MAIN);
+			startMain.addCategory(Intent.CATEGORY_HOME);
+			startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			startActivity(startMain);
+			finish();
 	}
 
 }
