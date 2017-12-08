@@ -61,13 +61,9 @@ public class MainActivity extends Activity {
 		try{ 
 			/* Disable Package */
 			PackageManager localPackageManager = getPackageManager();
-			localPackageManager.setComponentEnabledSetting(new ComponentName("org.cyanogenmod.pearlynsetup", "org.cyanogenmod.pearlynsetup.MainActivity"), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, 1);
+			localPackageManager.setComponentEnabledSetting(new ComponentName("com.cyanogenmod.pearlynsetup", "com.cyanogenmod.pearlynsetup.MainActivity"), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, 1);
 			} catch (Exception e) {}
-			/* Call the launcher & Kill app */	
-			Intent startMain = new Intent(Intent.ACTION_MAIN);
-			startMain.addCategory(Intent.CATEGORY_HOME);
-			startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			startActivity(startMain);
+			/* Kill app */	
 			finish();
 	}
 
