@@ -22,31 +22,33 @@ import android.content.pm.PackageManager;
 import android.content.ComponentName;
 import android.content.Intent;
 
+
 public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        PackageManager pm = getPackageManager();
-        try {
-            pm.getPackageInfo("com.google.android.gms",PackageManager.GET_ACTIVITIES);
-            setContentView(R.layout.main);
-			/* Enable Bluetooth onCreate */
+        /* Enable Bluetooth onCreate */
 			BluetoothAdapter mBtAdapter = BluetoothAdapter.getDefaultAdapter(); 
 			if (! mBtAdapter.isEnabled()) {
 			mBtAdapter.enable(); 
 			}
-			/* Call AtvRemoteService */
+		/* Call IOSBeamService */
 			Intent i = new Intent();		 
- 			String pkg = "com.google.android.tv.remote.service";
- 			String cls = "com.google.android.tv.remote.service.DiscoveryService"; 
+ 			String pkg = "com.razerzone.pearlyn.beam.iosservice";
+ 			String cls = "com.razerzone.pearlyn.beam.iosservice.BeamService"; 
  			i.setComponent(new ComponentName(pkg, cls));
  			startService(i);
+ 		/* Draw the layout */	
+ 			setContentView(R.layout.main);	
+        
+        PackageManager pm = getPackageManager();
+        try {
+            pm.getPackageInfo("com.google.android.gsf",PackageManager.GET_ACTIVITIES);
+            managepackage ("com.google.android.gsf","com.google.android.gsf.settings.ConfirmLgaaylActivity",0);
 			}	
-			catch (PackageManager.NameNotFoundException e) {
-				disableandkill();
-			}
+			catch (PackageManager.NameNotFoundException e) {}
 
     }
     
@@ -56,13 +58,20 @@ public class MainActivity extends Activity {
 		disableandkill();
 	}
 	
+	private void managepackage(String pkg, String act, int sta) {
+		try{ 
+			PackageManager localPackageManager = getPackageManager();
+			if (sta==0) {localPackageManager.setComponentEnabledSetting(new ComponentName(pkg, act), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, 1);}
+			else {localPackageManager.setComponentEnabledSetting(new ComponentName(pkg, act), PackageManager.COMPONENT_ENABLED_STATE_ENABLED, 1);}
+			} catch (Exception e) {}
+		}
+	
 	private void disableandkill()
 	{			
-		try{ 
 			/* Disable Package */
-			PackageManager localPackageManager = getPackageManager();
-			localPackageManager.setComponentEnabledSetting(new ComponentName("com.cyanogenmod.pearlynsetup", "com.cyanogenmod.pearlynsetup.MainActivity"), PackageManager.COMPONENT_ENABLED_STATE_DISABLED, 1);
-			} catch (Exception e) {}
+			managepackage ("com.cyanogenmod.pearlynsetup","com.cyanogenmod.pearlynsetup.MainActivity",0);
+			/* Re-enable Provision */
+			managepackage ("com.google.android.gsf","com.google.android.gsf.settings.ConfirmLgaaylActivity",1);
 			/* Kill app */	
 			finish();
 	}

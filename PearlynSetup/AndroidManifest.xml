@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application android:exported="true" android:icon="@mipmap/ic_launcher" android:label="PearlynSetup" android:theme="@style/Theme.Leanback">
         <activity android:label="PearlynSetupActivity" android:name=".MainActivity" android:screenOrientation="landscape">
-		<intent-filter android:priority="5">
+		<intent-filter android:priority="9">
 			<action android:name="android.intent.action.MAIN" />
 			<action android:name="android.intent.action.DEVICE_INITIALIZATION_WIZARD" />
 			<category android:name="android.intent.category.HOME" />
