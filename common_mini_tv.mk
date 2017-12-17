@@ -116,6 +116,10 @@ PRODUCT_PACKAGES += \
     Updater \
     WallpaperPicker
     
+# TV
+PRODUCT_PACKAGES += AppDrawer
+DEVICE_PACKAGE_OVERLAYS += vendor/cm/overlay/tv    
+    
 # Extra tools in CM
 PRODUCT_PACKAGES += \
     7z \

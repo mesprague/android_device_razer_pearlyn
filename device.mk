@@ -116,10 +116,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	wpa_supplicant
 	
-# Launcher Mod Apps (thanks to CM13 for fugu)
-PRODUCT_PACKAGES += \
-	AppDrawer	
-	
 # CMActions & PearlynSetup
 PRODUCT_PACKAGES += \
 	CMActions \
